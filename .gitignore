@@ -1,0 +1,20 @@
+# Ignora tudo
+*
+
+# Exceto arquivos .java
+!*.java
+
+# Permite pastas
+!*/
+
+# Sempre incluir .gitignore
+!.gitignore
+
+# Ignora compilados
+*.class
+
+# Ignora IntelliJ e VS Code configs
+.idea/
+*.iml
+out/
+.vscode/
