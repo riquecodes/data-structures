@@ -1,3 +1,5 @@
+package hashTable;
+
 public class Main {
     public static void main(String[] args) {
         TabelaHashTAD hash = new TabelaHashTAD(5);

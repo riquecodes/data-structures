@@ -1,3 +1,4 @@
+package hashTable;
 import java.util.LinkedList;
 
 public class TabelaHashTAD {

@@ -1,3 +1,5 @@
+package linkedList;
+
 public class TADList {
     private Nodo head, tail;
     private int size;
