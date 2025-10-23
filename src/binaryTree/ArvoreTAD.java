@@ -1,5 +1,7 @@
 package binaryTree;
 
+import java.util.ArrayList;
+
 public class ArvoreTAD {
     private Nodo raiz;
 
@@ -11,22 +13,24 @@ public class ArvoreTAD {
         return raiz == null;
     }
 
-    /* TODO implementar
     public int tamanho() {
-
+        if (estaVazia()) {
+            return 0;
+        }
+        return tamanhoRec(raiz);
     }
-    */
-
-    /* TODO implementar
+    
     private int tamanhoRec(Nodo n) {
+        if (n == null) {
+            return 0;
+        }
+        return 1 + tamanhoRec(n.esq) + tamanhoRec(n.dir);
     }
-    */
 
-    /* TODO implementar
     public void limpa() {
+        this.raiz = null;
     }
-    */
-
+    
     public void insere(int elem) {
         if (estaVazia()) {
             this.raiz = new Nodo(elem);
@@ -85,79 +89,102 @@ public class ArvoreTAD {
         return pesquisaRec(elem, n.dir);
     }
 
-    /* TODO implementar
     public void imprimeEmOrdem() {
+        this.imprimeEmOrdemRec(this.raiz);
     }
-    */
 
-    /* TODO implementar
     private void imprimeEmOrdemRec(Nodo n) {
-    }
-    */
+        if (n == null) {
+            return;
+        }
 
-    /* TODO implementar
+        this.imprimeEmOrdemRec(n.esq);
+        System.out.println(n.elem);
+        this.imprimeEmOrdemRec(n.dir);
+    }
+
     public void imprimePosOrdem() {
+        this.imprimePosOrdemRec(this.raiz);
     }
-    */
 
-    /* TODO implementar
     private void imprimePosOrdemRec(Nodo n) {
-    }
-    */
+        if (n == null) {
+            return;
+        }
 
-    /* TODO implementar
+        this.imprimePosOrdemRec(n.esq);
+        this.imprimePosOrdemRec(n.dir);
+        System.out.println(n.elem);
+    }
+
     public void imprimePreOrdem() {
+        this.imprimePreOrdemRec(this.raiz);        
     }
-    */
 
-    /* TODO implementar
     private void imprimePreOrdemRec(Nodo n) {
-    }
-    */
+        if (n == null) {
+            return;
+        }
 
-    /* TODO implementar
+        System.out.println(n.elem);
+        this.imprimePreOrdemRec(n.esq);
+        this.imprimePreOrdemRec(n.dir);
+    }
+
     public int acessaMaior() {
+        return acessaMaiorRec(this.raiz);
     }
-    */
 
-    /* TODO implementar
     private int acessaMaiorRec(Nodo n) {
-    }
-    */
+        if (n.dir == null) {
+            return n.elem;
+        }
 
-    /* TODO implementar
+        return acessaMaiorRec(n.dir);
+    }
+
     public int acessaMenor() {
+        return acessaMenorRec(this.raiz);
     }
-    */
 
-    /* TODO implementar
     private int acessaMenorRec(Nodo n) {
-    }
-    */
+        if (n.esq == null) {
+            return n.elem;
+        }
 
-    /* TODO implementar
-    public ArrayList<Integer> criaVetorEmOrdem(  ) {
+        return acessaMenorRec(n.esq);
     }
-    */
 
-    /* TODO implementar
+    public ArrayList<Integer> criaVetorEmOrdem() {
+        ArrayList<Integer> vetor = new ArrayList<>();
+        this.criaVetorEmOrdem(this.raiz, vetor);
+        return vetor;
+    }
+
     private void criaVetorEmOrdem(Nodo n, ArrayList<Integer> vetor) {
-    }
-    */
+        if (n == null) {
+            return;
+        }
 
-    /* TODO implementar
+        this.criaVetorEmOrdem(n.esq, vetor);
+        vetor.add(n.elem);
+        this.criaVetorEmOrdem(n.dir, vetor);
+    }
+
     public void balanceamentoEstatico() {
+        this.preencheArvoreBinaria(this.criaVetorEmOrdem(), 0, this.tamanho() - 1);
     }
-    */
 
-    /* TODO implementar
     private void preencheArvoreBinaria(ArrayList<Integer> vetorEmOrdem, int i, int f) {
-    }
-    */
+        if (i > f) {
+            return;
+        }
 
-    /****************************/
-    /* MÉTODOS JÁ IMPLEMENTADOS */
-    /****************************/
+        int meio = (i + f) / 2;
+        this.insere(vetorEmOrdem.get(meio));
+        preencheArvoreBinaria(vetorEmOrdem, i, meio - 1);
+        preencheArvoreBinaria(vetorEmOrdem, meio + 1, f);
+    }
 
     public void imprimeArvore() {
         this.imprimeArvoreRec(this.raiz, 0);
