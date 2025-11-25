@@ -1,5 +1,3 @@
-package org.example;
-
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -7,7 +5,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Exemplo5 {
+public class Exemplo4 {
     public static void main(String[] args) {
         String url = "https://ed-json-post-23762f735f6e.herokuapp.com/data";
 
@@ -17,6 +15,7 @@ public class Exemplo5 {
         jsonObject.put("email", "henrique.riva@aluno.farroupilha.ifrs.edu.br");
         jsonObject.put("reside_farroupilha", true);
         jsonObject.put("altura", 1.79);
+
 
         JSONObject curso = new JSONObject();
 

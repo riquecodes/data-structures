@@ -7,6 +7,9 @@
 # Permite pastas
 !*/
 
+# Permite o pom.xml
+!pom.xml
+
 # Sempre incluir .gitignore
 !.gitignore
 
